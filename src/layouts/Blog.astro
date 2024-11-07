@@ -6,6 +6,7 @@ type Props = MarkdownLayoutProps<{
   // Define frontmatter props here
   title: string;
   date: string;
+  tags: string[];
 }>;
 
 const { frontmatter, url } = Astro.props;

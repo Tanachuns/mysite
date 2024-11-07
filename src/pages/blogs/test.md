@@ -2,6 +2,7 @@
 layout: ../../layouts/Blog.astro
 title: "Lorem ipsum"
 date: "2 July 2024"
+tags: ["test","Lorem"]
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum felis ac bibendum lobortis. Mauris turpis magna, aliquam in dui id, fermentum fringilla turpis. Mauris eu est sit amet nibh finibus vestibulum. Morbi quis nisl non lorem suscipit placerat id sit amet magna. Donec in dolor non justo condimentum sodales. Proin euismod dapibus lectus, vel lacinia ex varius ac. Quisque ac tristique mi. Nunc non tempus elit, at auctor metus. Aenean massa tellus, elementum et commodo venenatis, gravida vel augue. Proin at pellentesque justo, ut efficitur sapien. Maecenas pellentesque felis sed tortor elementum scelerisque. Praesent vel facilisis ligula, ac tristique sem. Vestibulum feugiat egestas libero, nec imperdiet erat dictum et. Vivamus semper dictum tortor, at euismod arcu molestie eu. Quisque varius dictum turpis, nec condimentum ex.

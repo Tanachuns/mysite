@@ -2,6 +2,7 @@
 layout: ../../layouts/Blog.astro
 title: "วันดีๆ ที่มีเธออยู่ด้วย เป็นความสุขของฉันจริงๆ นะ"
 date: "2 July 2024"
+tags: ["test"]
 ---
 
 

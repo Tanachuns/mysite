@@ -1,19 +1,27 @@
 ---
+import BlogCard from "../components/BlogCard.astro";
 import Layout from "../layouts/Layout.astro";
 
 const globs = await Astro.glob("./blogs/*.md");
-console.log(globs[0].url);
+console.log(globs[0].frontmatter.tags);
 ---
 
 <Layout title="Tanabythepond.dev">
-  <h1 class="">Hello world!</h1>
+  <h1 class="text-3xl">สิ่งน่าสนใจ</h1>
   <ul>
     {
       globs.map((blog) => {
         return (
-          <li>
-            <a href={blog.url}>{blog.frontmatter.title}</a>
-          </li>
+          // <li>
+          //   <a href={blog.url}>{blog.frontmatter.title}</a>
+          // </li>
+          <BlogCard
+            title={blog.frontmatter.title}
+            link={blog.url}
+            date={blog.frontmatter.date}
+            description={blog.rawContent}
+            tags={blog.frontmatter.tags}
+          />
         );
       })
     }

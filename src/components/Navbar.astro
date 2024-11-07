@@ -6,15 +6,10 @@ import MenuModal from "./MenuModal.astro";
 
 <nav class="border-b sticky top-0 bg-white bg-opacity-70">
   <div class="p-2 m-auto container flex justify-between">
-    <a href="/">
-      <Image
-        src={Logo}
-        alt="My Logo"
-        width="50"
-        height="50"
-        loading="eager"
-      /></a
-    >
+    <a href="/" class="flex items-center">
+      <Image src={Logo} alt="My Logo" width="50" height="50" loading="eager" />
+      <p>Tanabythepond</p>
+    </a>
     <MenuModal />
   </div>
 </nav>
