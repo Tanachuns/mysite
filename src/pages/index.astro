@@ -1,8 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const globs = await Astro.glob("./blogs/*.md");
+console.log(globs[0].url);
 ---
 
-<Layout title="Homies">
+<Layout title="Tanabythepond.dev">
   <h1 class="">Hello world!</h1>
-  <a href="/blogs/test">test</a>
+  <ul>
+    {
+      globs.map((blog) => {
+        return (
+          <li>
+            <a href={blog.url}>{blog.frontmatter.title}</a>
+          </li>
+        );
+      })
+    }
+  </ul>
 </Layout>
