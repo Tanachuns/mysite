@@ -1,18 +1,37 @@
----
-const { span } = Astro.props;
----
-
-<side class="col-span-1">
+<side class="col-span-1 hidden md:block pt-8">
   <ul>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <hr />
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
+    <a href="/">
+      <li class="p-4 hover:bg-gray-200 flex gap-1 items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="size-5"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"
+            clip-rule="evenodd"></path>
+        </svg>
+
+        Home
+      </li>
+    </a>
+    <a href="/about">
+      <li class="p-4 hover:bg-gray-200 flex gap-1 items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          class="size-5"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-5.5-2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 12a5.99 5.99 0 0 0-4.793 2.39A6.483 6.483 0 0 0 10 16.5a6.483 6.483 0 0 0 4.793-2.11A5.99 5.99 0 0 0 10 12Z"
+            clip-rule="evenodd"></path>
+        </svg>
+        About
+      </li>
+    </a>
   </ul>
 </side>

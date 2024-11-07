@@ -3,10 +3,16 @@ import { Image } from "astro:assets";
 import Logo from "../images/favicon.png";
 ---
 
-<nav class="border-b">
+<nav class="border-b sticky top-0 bg-white bg-opacity-70">
   <div class="p-2 m-auto container">
-    <button>
-      <Image src={Logo} alt="A bird." width="50" height="50" loading="eager" />
-    </button>
+    <a href="/">
+      <Image
+        src={Logo}
+        alt="My Logo"
+        width="50"
+        height="50"
+        loading="eager"
+      /></a
+    >
   </div>
 </nav>
