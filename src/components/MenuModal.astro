@@ -1,0 +1,46 @@
+<script>
+  const openModalButton = document.getElementById(
+    "openModal"
+  ) as HTMLButtonElement;
+  const closeModalButton = document.getElementById(
+    "closeModal"
+  ) as HTMLButtonElement;
+  const modal = document.getElementById("myModal") as HTMLDialogElement;
+
+  openModalButton.addEventListener("click", () => {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  });
+
+  closeModalButton.addEventListener("click", () => {
+    modal.classList.remove("flex");
+    modal.classList.add("hidden");
+  });
+</script>
+<button id="openModal" class="block md:hidden"
+  ><svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    class="size-6"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
+      clip-rule="evenodd"></path>
+  </svg>
+</button>
+<div
+  id="myModal"
+  class="fixed inset-0 hidden bg-gray-900 bg-opacity-50 items-center justify-center"
+>
+  <div
+    class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all w-full h-full flex items-center"
+  >
+    <div class="h-1/2 w-full flex flex-col justify-around items-center">
+      <a class="hover:underline" href="/"><p>บ้าน</p></a>
+      <a class="hover:underline" href="/about"><p>ฉัน</p></a>
+      <b id="closeModal"> Close </b>
+    </div>
+  </div>
+</div>
