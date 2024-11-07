@@ -1,3 +1,12 @@
-<nav class="bg-black">
-  <div class="m-auto h-[40px] bg-blue-400 container">Nav</div>
+---
+import { Image } from "astro:assets";
+import Logo from "../images/favicon.png";
+---
+
+<nav class="border-b">
+  <div class="p-2 m-auto container">
+    <button>
+      <Image src={Logo} alt="A bird." width="50" height="50" loading="eager" />
+    </button>
+  </div>
 </nav>

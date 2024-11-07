@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import Sidebar from "../components/Sidebar.astro";
 
 interface Props {
   title: string;
@@ -9,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="th">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -18,8 +19,12 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="overflow-x-hidden bg-slate-300">
     <Navbar />
-    <slot />
+    <main class="container m-auto h-[100vh] grid grid-cols-4">
+      <Sidebar />
+      <div class="col-span-2"><slot /></div>
+      <Sidebar />
+    </main>
   </body>
 </html>
