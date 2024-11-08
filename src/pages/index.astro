@@ -3,7 +3,6 @@ import BlogCard from "../components/BlogCard.astro";
 import Layout from "../layouts/Layout.astro";
 
 const globs = await Astro.glob("./blogs/*.md");
-console.log(globs[0].frontmatter.tags);
 ---
 
 <Layout title="Tanabythepond.dev">
