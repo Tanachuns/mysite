@@ -1,0 +1,44 @@
+---
+import BlogCard from "../../components/BlogCard.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const globs = await Astro.glob("../blogs/*.md");
+export function getStaticPaths() {
+  return [
+    { params: { tag: "Lorem" } },
+    { params: { tag: "test" } },
+    { params: { tag: "all" } },
+  ];
+}
+const { tag } = Astro.params;
+---
+
+<Layout title="ป้ายบอกทาง | บึงดิจิตอลของธนารักษ์">
+  <h1 class="text-3xl">ป้ายบอกทาง | {tag == "all" ? "ทั้งหมด" : tag}</h1>
+  <ul>
+    {
+      globs
+        .filter((item) => {
+          if (tag == "all") {
+            return item;
+          } else {
+            return item.frontmatter.tags.includes(tag);
+          }
+        })
+        .map((blog) => {
+          return (
+            // <li>
+            //   <a href={blog.url}>{blog.frontmatter.title}</a>
+            // </li>
+            <BlogCard
+              title={blog.frontmatter.title}
+              link={blog.url}
+              date={blog.frontmatter.date}
+              description={blog.rawContent}
+              tags={blog.frontmatter.tags}
+            />
+          );
+        })
+    }
+  </ul>
+</Layout>

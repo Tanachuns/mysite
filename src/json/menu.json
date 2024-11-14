@@ -1,7 +1,16 @@
 [
     {
-        "title":"",
-        "path":"",
+        "title":"บ้าน",
+        "path":"/",
+        "svg":""
+    },
+    {
+        "title":"ฉัน",
+        "path":"/about",
+        "svg":""
+    },{
+        "title":"ป้ายบอกทาง",
+        "path":"/tags/all",
         "svg":""
     }
 ]
