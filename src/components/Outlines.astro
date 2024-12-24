@@ -8,13 +8,13 @@ interface Props {
 const { outlines } = Astro.props;
 ---
 
-<side class="sticky self-start top-20">
+<side class="sticky self-start top-20 hidden md:block">
   <ul>
     {
       outlines?.map((item) => {
         return (
           <>
-            <a href={"#"+item.class}>
+            <a href={"#" + item.class}>
               <li class="p-2 hover:underline flex gap-1 items-center">
                 <small> {item.name}</small>
               </li>
