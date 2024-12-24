@@ -9,10 +9,12 @@ import type { Outline } from "./Blog.astro";
 interface Props {
   title: string;
   outline?: Outline[];
+  url?: string;
+  imgPath?: string;
+  desc: string;
 }
 
-const { title, outline } = Astro.props;
-
+const { title, outline, url, imgPath, desc } = Astro.props;
 ---
 
 <!doctype html>
@@ -33,11 +35,39 @@ const { title, outline } = Astro.props;
     <meta name="generator" content={Astro.generator} />
 
     <title>{title + " | บึงดิจิตอลของธนารักษ์ "}</title>
+
+    <!-- Primary Meta Tags -->
+    <title>บ้าน | บึงดิจิตอลของธนารักษ์</title>
+    <meta name="title" content="บ้าน | บึงดิจิตอลของธนารักษ์ " />
+    <meta
+      name="description"
+      content="สวัสดีชาวเน็ต, ผม ต้น เป็น Software Developer หน้าใหม่แต่ไฟมอดไปแล้ว😭 ที่ชื่นชอบ การทำอาหาร, สร้างนู่นนี่ และ ศึกษาอะไรไปเรื่อย "
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title + " | บึงดิจิตอลของธนารักษ์ "} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:image" content={imgPath} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta
+      property="twitter:title"
+      content={title + " | บึงดิจิตอลของธนารักษ์ "}
+    />
+    <meta property="twitter:description" content={desc} />
+    <meta property="twitter:image" content={imgPath} />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
   </head>
   <body class="overflow-x-hidden bg-white">
-
     <Navbar />
-    <main class="container m-auto min-h-[100vh] grid md:grid-cols-5 overflow-visible">
+    <main
+      class="container m-auto min-h-[100vh] grid md:grid-cols-5 overflow-visible"
+    >
       <Sidebar />
       <div class="md:border-l col-auto md:col-span-3 p-8"><slot /></div>
       {outline && <Outlines outlines={outline} />}

@@ -2,6 +2,7 @@
 import type { MarkdownInstance } from "astro";
 import BlogCard from "../components/BlogCard.astro";
 import Layout from "../layouts/Layout.astro";
+import img from "../images/meta/home.png";
 
 const globs = [] as MarkdownInstance<Record<string, any>>[];
 const g = await import.meta.glob("./blogs/*.md");
@@ -10,10 +11,13 @@ for (var k in g) {
   const c = await g[k]();
   globs.push(c as MarkdownInstance<Record<string, any>>);
 }
-
 ---
 
-<Layout title="บ้าน">
+<Layout
+  title="บ้าน"
+  desc="สวัสดีชาวเน็ต, ผม ต้น เป็น Software Developer หน้าใหม่แต่ไฟมอดไปแล้ว😭 ที่ชื่นชอบ การทำอาหาร, สร้างนู่นนี่ และ ศึกษาอะไรไปเรื่อย"
+  imgPath={img.src}
+>
   <h1 class="text-3xl">สิ่งน่าสนใจ</h1>
   <ul>
     {
