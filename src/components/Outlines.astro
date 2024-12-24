@@ -8,7 +8,7 @@ interface Props {
 const { outlines } = Astro.props;
 ---
 
-<side class="col-span-1 hidden md:block pt-8">
+<side class="sticky self-start top-20">
   <ul>
     {
       outlines?.map((item) => {

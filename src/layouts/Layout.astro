@@ -38,7 +38,7 @@ console.log(outline);
   <body class="overflow-x-hidden bg-white">
 
     <Navbar />
-    <main class="container m-auto min-h-[100vh] grid md:grid-cols-5 w">
+    <main class="container m-auto min-h-[100vh] grid md:grid-cols-5 overflow-visible">
       <Sidebar />
       <div class="md:border-l col-auto md:col-span-3 p-8"><slot /></div>
       {outline && <Outlines outlines={outline} />}
