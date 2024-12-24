@@ -21,10 +21,7 @@ const { title, outline, url, imgPath, desc } = Astro.props;
 <html lang="th" class="scroll-smooth scroll-p-20">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="สวัสดีชาวเน็ต, ผม ต้น เป็น Software Developer หน้าใหม่แต่ไฟมอดไปแล้ว😭 ที่ชื่นชอบ การทำอาหาร, สร้างนู่นนี่ และ ศึกษาอะไรไปเรื่อย "
-    />
+    <meta name="description" />
     <meta name="viewport" content="width=device-width" />
 
     <!-- SEO -->
@@ -34,15 +31,10 @@ const { title, outline, url, imgPath, desc } = Astro.props;
     <link rel="icon" type="image/svg+xml" href={Logo.src} />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title + " | บึงดิจิตอลของธนารักษ์ "}</title>
-
     <!-- Primary Meta Tags -->
-    <title>บ้าน | บึงดิจิตอลของธนารักษ์</title>
-    <meta name="title" content="บ้าน | บึงดิจิตอลของธนารักษ์ " />
-    <meta
-      name="description"
-      content="สวัสดีชาวเน็ต, ผม ต้น เป็น Software Developer หน้าใหม่แต่ไฟมอดไปแล้ว😭 ที่ชื่นชอบ การทำอาหาร, สร้างนู่นนี่ และ ศึกษาอะไรไปเรื่อย "
-    />
+
+    <meta name="title" content={title + " | บึงดิจิตอลของธนารักษ์ "} />
+    <meta name="description" content={desc} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />

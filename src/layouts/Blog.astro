@@ -8,6 +8,7 @@ type Props = MarkdownLayoutProps<{
   date: string;
   tags: string[];
   isDraft: boolean;
+  desc?:string
 }>;
 
 export type Outline = {
@@ -16,15 +17,15 @@ export type Outline = {
 };
 
 const { frontmatter, url, headings } = Astro.props;
-const heads:Outline[] = headings.map((item) => {
+const heads: Outline[] = headings.map((item) => {
   return {
-    name:item.text,
-    class:item.slug
-  }
+    name: item.text,
+    class: item.slug,
+  };
 });
 ---
 
-<Layout title={frontmatter.title} outline={heads}>
+<Layout title={frontmatter.title} outline={heads} desc={frontmatter.desc}>
   <p class="text-3xl mb-1">{frontmatter.title}</p>
   <small>{frontmatter.date}</small>
   <hr class="my-5" />
