@@ -9,20 +9,21 @@ const globs = await Astro.glob("./blogs/*.md");
   <h1 class="text-3xl">สิ่งน่าสนใจ</h1>
   <ul>
     {
-      globs.map((blog) => {
-        return (
-          // <li>
-          //   <a href={blog.url}>{blog.frontmatter.title}</a>
-          // </li>
-          <BlogCard
-            title={blog.frontmatter.title}
-            link={blog.url}
-            date={blog.frontmatter.date}
-            description={blog.rawContent}
-            tags={blog.frontmatter.tags}
-          />
-        );
-      })
+      globs
+        .filter( (item) => {
+          return !item.file.includes("/tmp") && !item.frontmatter.isDraft;
+        })
+        .map((blog) => {
+          return (
+            <BlogCard
+              title={blog.frontmatter.title}
+              link={blog.url}
+              date={blog.frontmatter.date}
+              description={blog.rawContent}
+              tags={blog.frontmatter.tags}
+            />
+          );
+        })
     }
   </ul>
 </Layout>

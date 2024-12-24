@@ -1,0 +1,27 @@
+---
+import type { Outline } from "../layouts/Blog.astro";
+
+interface Props {
+  outlines?: Outline[];
+}
+
+const { outlines } = Astro.props;
+---
+
+<side class="col-span-1 hidden md:block pt-8">
+  <ul>
+    {
+      outlines?.map((item) => {
+        return (
+          <>
+            <a href={"#"+item.class}>
+              <li class="p-2 hover:underline flex gap-1 items-center">
+                <small> {item.name}</small>
+              </li>
+            </a>
+          </>
+        );
+      })
+    }
+  </ul>
+</side>
