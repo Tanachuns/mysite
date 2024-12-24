@@ -1,11 +1,11 @@
 ---
 import BlogCard from "../../components/BlogCard.astro";
 import Layout from "../../layouts/Layout.astro";
-import tags from "../../json/tags.json";
+import _tags from "../../json/tags.json";
 import type { MarkdownInstance } from "astro";
 
 const globs = [] as MarkdownInstance<Record<string, any>>[];
-const g = await import.meta.glob("./blogs/*.md");
+const g = await import.meta.glob("../blogs/*.md");
 
 for (var k in g) {
   const c = await g[k]();
@@ -13,9 +13,11 @@ for (var k in g) {
 }
 
 export function getStaticPaths() {
-  return tags;
+  return _tags;
 }
+
 const { tag } = Astro.params;
+console.log(tag);
 ---
 
 <Layout title="ป้ายบอกทาง | บึงดิจิตอลของธนารักษ์">
