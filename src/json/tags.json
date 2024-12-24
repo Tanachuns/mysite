@@ -1,0 +1,6 @@
+  [
+    { "params": { "tag": "Lorem" } },
+    { "params": { "tag": "all" } },
+    { "params": { "tag": "book" } },
+    { "params": { "tag": "philosophy" } }
+  ]

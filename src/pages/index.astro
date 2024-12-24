@@ -1,8 +1,16 @@
 ---
+import type { MarkdownInstance } from "astro";
 import BlogCard from "../components/BlogCard.astro";
 import Layout from "../layouts/Layout.astro";
 
-const globs = await Astro.glob("./blogs/*.md");
+const globs = [] as MarkdownInstance<Record<string, any>>[];
+const g = await import.meta.glob("./blogs/*.md");
+
+for (var k in g) {
+  const c = await g[k]();
+  globs.push(c as MarkdownInstance<Record<string, any>>);
+}
+
 ---
 
 <Layout title="บ้าน">
@@ -10,7 +18,7 @@ const globs = await Astro.glob("./blogs/*.md");
   <ul>
     {
       globs
-        .filter( (item) => {
+        .filter((item) => {
           return !item.file.includes("/tmp") && !item.frontmatter.isDraft;
         })
         .map((blog) => {
