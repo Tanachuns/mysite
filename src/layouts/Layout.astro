@@ -15,7 +15,7 @@ interface Props {
 }
 
 const { title, outline, url, imgPath, desc } = Astro.props;
-console.log(title)
+console.log(title);
 const keywords = `Tanarak Chunsanit,
 Software Developer, 
 หน้าใหม่,
@@ -24,7 +24,7 @@ Software Developer,
 ประสบการณ์ใหม่,
 การเรียนรู้,
 บันทึกความทรงจำ,
-งาน dev,`
+งาน dev,`+title;
 ---
 
 <!doctype html>
@@ -65,7 +65,7 @@ Software Developer,
       rel="stylesheet"
     />
 
-
+    <title>{title + " | MintCho.cc "}</title>
     <!-- Meta Tags Generated with https://metatags.io -->
   </head>
   <body class="overflow-x-hidden bg-zinc-800 text-white">
