@@ -1,5 +1,14 @@
-<footer class="bg-black text-white h-[100px]">
+---
+import { date } from "astro:schema";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-black text-white">
   <div class="container m-auto p-2 text-center">
-    <a href="https://x.com/tanachuns" target="_blank">[x]</a>
+    <a href="https://x.com/tanachuns" class="hover:text-custom-mint" target="_blank">
+      Cooked by © {year} tanachuns</a
+    >
+    
   </div>
 </footer>
