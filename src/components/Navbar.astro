@@ -4,11 +4,11 @@ import Logo from "../images/favicon.png";
 import MenuModal from "./MenuModal.astro";
 ---
 
-<nav class="border-b sticky top-0 bg-white bg-opacity-70">
+<nav class="sticky top-0 text-white bg-opacity-70 bg-zinc-800">
   <div class="p-2 m-auto container flex justify-between">
-    <a href="/" class="flex items-center">
+    <a href="/" class="flex items-center hover:text-custom-mint">
       <Image src={Logo} alt="My Logo" width="50" height="50" loading="eager" />
-      <p>บึงดิจิตอลของธนารักษ์</p>
+      <b>MintCho.cc</b>
     </a>
     <MenuModal />
   </div>

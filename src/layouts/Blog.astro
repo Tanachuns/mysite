@@ -26,10 +26,12 @@ const heads: Outline[] = headings.map((item) => {
 ---
 
 <Layout title={frontmatter.title} outline={heads} desc={frontmatter.desc}>
-  <p class="text-3xl mb-1">{frontmatter.title}</p>
+  <p class="text-5xl mb-1">{frontmatter.title}</p>
   <small>{frontmatter.date}</small>
   <hr class="my-5" />
-  <div class="prose text-pretty max-w-full">
+  <div class="prose text-pretty max-w-full text-white prose-headings:text-white prose-headings:underline prose-headings:decoration-custom-mint">
     <slot />
   </div>
+      
+
 </Layout>
