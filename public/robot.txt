@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://tanabythepond.dev/sitemap-index.xml
+Sitemap: https://mintcho.cc//sitemap-index.xml
