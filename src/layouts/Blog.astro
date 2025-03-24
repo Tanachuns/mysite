@@ -29,7 +29,11 @@ const heads: Outline[] = headings.map((item) => {
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/images/blogs/*.{jpeg,jpg,png,gif}"
 );
-console.log(images[frontmatter.image]())
+
+if (!images[frontmatter.image])
+  throw new Error(
+    `"${frontmatter.image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
 ---
 
 <Layout title={frontmatter.title} outline={heads} desc={frontmatter.desc}>
