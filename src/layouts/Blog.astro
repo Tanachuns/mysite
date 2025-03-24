@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import type { MarkdownLayoutProps } from "astro";
+import { Image } from "astro:assets";
 
 type Props = MarkdownLayoutProps<{
   // Define frontmatter props here
@@ -8,7 +9,8 @@ type Props = MarkdownLayoutProps<{
   date: string;
   tags: string[];
   isDraft: boolean;
-  desc?:string
+  desc?: string;
+  image: string;
 }>;
 
 export type Outline = {
@@ -23,15 +25,22 @@ const heads: Outline[] = headings.map((item) => {
     class: item.slug,
   };
 });
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/blogs/*.{jpeg,jpg,png,gif}"
+);
+console.log(images[frontmatter.image]())
 ---
 
 <Layout title={frontmatter.title} outline={heads} desc={frontmatter.desc}>
   <p class="text-5xl mb-1">{frontmatter.title}</p>
   <small>{frontmatter.date}</small>
   <hr class="my-5" />
-  <div class="prose text-pretty max-w-full text-white prose-headings:text-white prose-headings:underline prose-headings:decoration-custom-mint">
+  <Image src={images[frontmatter.image]()} alt={frontmatter.title} />
+
+  <div
+    class="prose text-pretty max-w-full text-white prose-headings:text-white prose-headings:underline prose-headings:decoration-custom-mint"
+  >
     <slot />
   </div>
-      
-
 </Layout>
