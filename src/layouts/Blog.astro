@@ -28,7 +28,7 @@ const heads: Outline[] = headings.map((item) => {
 
 ---
 
-<Layout title={frontmatter.title} outline={heads} desc={frontmatter.desc}>
+<Layout title={frontmatter.title} outline={heads} desc={frontmatter.desc} imgPath={frontmatter.image}>
   <p class="text-5xl mb-1">{frontmatter.title}</p>
   <small>{frontmatter.date}</small>
   <hr class="my-5" />
