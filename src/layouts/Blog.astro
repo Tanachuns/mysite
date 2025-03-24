@@ -26,21 +26,13 @@ const heads: Outline[] = headings.map((item) => {
   };
 });
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/images/blogs/*.{jpeg,jpg,png,gif}"
-);
-
-if (!images[frontmatter.image])
-  throw new Error(
-    `"${frontmatter.image}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
-  );
 ---
 
 <Layout title={frontmatter.title} outline={heads} desc={frontmatter.desc}>
   <p class="text-5xl mb-1">{frontmatter.title}</p>
   <small>{frontmatter.date}</small>
   <hr class="my-5" />
-  <Image src={images[frontmatter.image]()} alt={frontmatter.title} />
+  <img src={frontmatter.image} alt={frontmatter.title} />
 
   <div
     class="prose text-pretty max-w-full text-white prose-headings:text-white prose-headings:underline prose-headings:decoration-custom-mint"
