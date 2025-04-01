@@ -6,7 +6,7 @@ tags:
   - philosophy
   - book
 isDraft: false
-desc:
+desc: สรุป 10 ข้อจาก สรุป 10 ข้อจาก สรุป 10 ข้อ จาก...
 image: "/images/assb.png"
 ---
 
