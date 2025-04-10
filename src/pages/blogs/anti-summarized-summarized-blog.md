@@ -32,6 +32,6 @@ image: "/images/assb.png"
 
 ### อ้างอิง
 
-- https://www.theguardian.com/commentisfree/2018/aug/25/skim-reading-new-normal-maryanne-wolf#:~:text=Maryanne%20Wolf
-- https://www.linkedin.com/pulse/making-adjusting-connections-long-term-memory-jesse-martin/
-- https://seis.ucla.edu/news/maryanne-wolf-skimming-while-reading-changes-critical-thinking-and-empathy/
+- [skim-reading-new-normal-maryanne-wolf](https://www.theguardian.com/commentisfree/2018/aug/25/skim-reading-new-normal-maryanne-wolf)
+- [making-adjusting-connections-long-term-memory-jesse-martin](https://www.linkedin.com/pulse/making-adjusting-connections-long-term-memory-jesse-martin/)
+- [maryanne-wolf-skimming-while-reading-changes-critical-thinking-and-empathy](https://seis.ucla.edu/news/maryanne-wolf-skimming-while-reading-changes-critical-thinking-and-empathy/)
