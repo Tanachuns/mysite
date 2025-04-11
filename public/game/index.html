@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Draggable Map Example</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #mapContainer {
+        width: 1000px;
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        cursor: grab;
+        background-color: #ddd;
+        margin: 0 auto;
+        border: 10px solid lightgray;
+      }
+
+      #mapContent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3000px;
+        height: 3000px;
+        background-image: url("./jej1kbgmdd5b1.png");
+        background-size: auto;
+      }
+
+      .marker {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .marker::after {
+        content: "Marker";
+        position: absolute;
+        top: 25px;
+        left: -10px;
+        background: white;
+        padding: 2px 6px;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="resources">
+      <div>🌾 Wheat: <span id="wheat">1250</span> (+42/h)</div>
+      <div>🌲 Wood: <span id="wood">890</span> (+35/h)</div>
+      <div>⛏️ Iron: <span id="iron">650</span> (+28/h)</div>
+      <div>⛰️ Stone: <span id="clay">720</span> (+30/h)</div>
+    </div>
+    <div id="mapContainer">
+      <div id="mapContent">
+        <div id="marker" class="marker" style="top: 500px; left: 800px">📍</div>
+        <div id="marker" class="marker" style="top: 1200px; left: 1500px"></div>
+        <div id="marker" class="marker" style="top: 2000px; left: 700px"></div>
+      </div>
+    </div>
+
+    <script>
+      const container = document.getElementById("mapContainer");
+      const content = document.getElementById("mapContent");
+      const marker = document.getElementById("marker");
+
+      let isDragging = false;
+      let startX, startY, initialLeft, initialTop;
+
+      container.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        initialLeft = parseInt(content.style.left) || 0;
+        initialTop = parseInt(content.style.top) || 0;
+        container.style.cursor = "grabbing";
+      });
+
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+        container.style.cursor = "grab";
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        console.log("X" + (initialLeft + dx));
+        console.log("Y" + (initialTop + dy));
+        if (initialLeft + dx <= 0 && initialLeft + dx >= -2000) {
+          content.style.left = `${initialLeft + dx}px`;
+        }
+        if (initialTop + dy <= 0 && initialTop + dy >= -2500) {
+          content.style.top = `${initialTop + dy}px`;
+        }
+      });
+
+      container.addEventListener("touchstart", (e) => {
+        isDragging = true;
+
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        initialLeft = parseInt(content.style.left) || 0;
+        initialTop = parseInt(content.style.top) || 0;
+        container.style.cursor = "grabbing";
+      });
+
+      document.addEventListener("touchend", () => {
+        isDragging = false;
+        container.style.cursor = "grab";
+      });
+
+      document.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
+        const dx = e.touches[0].clientX - startX;
+        const dy = e.touches[0].clientY - startY;
+        console.log("X" + (initialLeft + dx));
+        console.log("Y" + (initialTop + dy));
+        if (initialLeft + dx <= 0 && initialLeft + dx >= -2000) {
+          content.style.left = `${initialLeft + dx}px`;
+        }
+        if (initialTop + dy <= 0 && initialTop + dy >= -2500) {
+          content.style.top = `${initialTop + dy}px`;
+        }
+      });
+      marker.addEventListener("click", () => {
+        alert("Click");
+      });
+
+      let resources = {
+        wheat: 1250,
+        wood: 890,
+        iron: 650,
+        clay: 720,
+      };
+
+      let rates = {
+        wheat: 0.5,
+        wood: 0.2,
+        iron: 0.1,
+        clay: 0.01,
+      };
+
+      function updateResources() {
+        for (let key in resources) {
+          resources[key] += rates[key];
+          document.getElementById(key).textContent = Math.floor(resources[key]);
+        }
+      }
+
+      setInterval(() => updateResources(), 1000); // update every 1 second
+    </script>
+  </body>
+</html>
